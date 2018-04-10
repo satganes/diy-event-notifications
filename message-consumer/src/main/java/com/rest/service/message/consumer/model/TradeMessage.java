@@ -3,6 +3,7 @@ package com.rest.service.message.consumer.model;
 import java.time.LocalDateTime;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
@@ -32,13 +33,12 @@ public class TradeMessage
     private String currencyFrom;
     @NotBlank
     private String currencyTo;
-    @NotBlank
+    @NotNull
     private Double amountSell;
-    @NotBlank
+    @NotNull
     private Double amountBuy;
-    @NotBlank
+    @NotNull
     private Double rate;
-    @NotBlank
     private LocalDateTime timePlaced;
     @NotBlank
     private String originatingCountry;

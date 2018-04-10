@@ -14,6 +14,7 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
 import com.rest.service.message.consumer.handlers.TradeMessageHandler;
+import com.rest.service.message.consumer.listeners.TradeMessageListener;
 
 @SpringBootApplication
 @EnableMongoAuditing
@@ -22,6 +23,12 @@ public class Application
     public static void main(String[] args)
     {
         SpringApplication.run(Application.class, args);
+    }
+
+    @Bean
+    public TradeMessageListener tradeMessageListener()
+    {
+        return new TradeMessageListener();
     }
 
     @Bean
