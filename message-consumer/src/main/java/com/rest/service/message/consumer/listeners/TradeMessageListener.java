@@ -19,7 +19,9 @@ public class TradeMessageListener extends AbstractMongoEventListener<TradeMessag
     @Override
     public void onAfterSave(AfterSaveEvent<TradeMessage> event)
     {
-        log.info("The received event : "+event.getSource().getCurrencyFrom());
+        log.info("The received event : " + event.getSource()
+                .getCurrencyFrom());
+        log.info("The received document is : " + event.getCollectionName());
         super.onAfterSave(event);
     }
 
