@@ -26,7 +26,7 @@ public class Receiver
         try
         {
             msg = mapper.readValue(input, TradeMessage.class);
-            webSocket.convertAndSend("/topic/greetings", mapper.writeValueAsString(msg.getAmountBuy()));
+            webSocket.convertAndSend("/topic/messages", msg);
         }
         catch (IOException e)
         {
