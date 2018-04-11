@@ -1,14 +1,6 @@
-package com.rest.service.message.consumer.model;
+package com.rest.service.message.processor.security;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -19,7 +11,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Document
 @Data
 @ToString
 @Builder
@@ -27,27 +18,17 @@ import lombok.ToString;
 @AllArgsConstructor
 @JsonSerialize
 @JsonDeserialize
-public class TradeMessage implements Serializable
+public class TradeMessage
 {
-    private static final long serialVersionUID = 1L;
-
     // Using lombok
-//    @CreatedDate
 //    private LocalDateTime createdDate;
 
-    @Id
     private String userId;
-    @NotBlank
     private String currencyFrom;
-    @NotBlank
     private String currencyTo;
-    @NotNull
     private Double amountSell;
-    @NotNull
     private Double amountBuy;
-    @NotNull
     private Double rate;
     private LocalDateTime timePlaced;
-    @NotBlank
     private String originatingCountry;
 }
