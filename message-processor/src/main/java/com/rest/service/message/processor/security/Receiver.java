@@ -1,4 +1,4 @@
-package com.rest.service.message.consumer.security;
+package com.rest.service.message.processor.security;
 
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

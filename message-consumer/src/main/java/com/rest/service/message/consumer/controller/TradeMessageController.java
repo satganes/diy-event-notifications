@@ -31,12 +31,6 @@ import reactor.core.publisher.Mono;
 public class TradeMessageController
 {
 
-    @Autowired
-    private RabbitTemplate template;
-
-    @Autowired
-    private Queue queue;
-
     private final TradeMessageRepository repository;
 
     public TradeMessageController(TradeMessageRepository tradeMessage)
@@ -54,7 +48,6 @@ public class TradeMessageController
     @PostMapping("")
     public Mono<TradeMessage> create(@RequestBody TradeMessage tradeMessage)
     {
-        this.template.convertAndSend(queue.getName(), tradeMessage.toString());
         return this.repository.save(tradeMessage);
     }
 
@@ -70,7 +63,6 @@ public class TradeMessageController
     public Mono<ResponseEntity<TradeMessage>> update(@PathVariable("id") String id,
             @Valid @RequestBody TradeMessage tradeMessage)
     {
-        this.template.convertAndSend(queue.getName(), tradeMessage.toString());
         return repository.findById(id)
                 .flatMap(msg ->
                 {

@@ -1,5 +1,7 @@
 package com.rest.service.message.consumer.listeners;
 
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;
@@ -14,14 +16,22 @@ public class TradeMessageListener extends AbstractMongoEventListener<TradeMessag
 {
 
     @Autowired
+    private RabbitTemplate template;
+
+    @Autowired
+    private Queue queue;
+
+    @Autowired
     MongoTemplate mongoTemplate;
 
     @Override
     public void onAfterSave(AfterSaveEvent<TradeMessage> event)
     {
         log.info("The received event : " + event.getSource()
-                .getCurrencyFrom());
-        log.info("The received document is : " + event.getCollectionName());
+                .toString());
+        log.info("Pushing into Rabbit MQ for broker");
+        this.template.convertAndSend(queue.getName(), event.getSource()
+                .toString());
         super.onAfterSave(event);
     }
 

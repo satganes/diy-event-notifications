@@ -1,4 +1,4 @@
-package com.rest.service.message.consumer.security;
+package com.rest.service.message.processor.security;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
@@ -8,8 +8,15 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMqConfig
 {
     @Bean
-    public Queue tradeMessages()
+    public Queue hello()
     {
         return new Queue("tradeMessages");
     }
+
+    @Bean
+    public Receiver receiver()
+    {
+        return new Receiver();
+    }
+
 }
