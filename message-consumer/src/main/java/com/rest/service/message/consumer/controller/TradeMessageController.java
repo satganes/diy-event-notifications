@@ -2,6 +2,9 @@ package com.rest.service.message.consumer.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,6 +31,12 @@ import reactor.core.publisher.Mono;
 public class TradeMessageController
 {
 
+    @Autowired
+    private RabbitTemplate template;
+
+    @Autowired
+    private Queue queue;
+
     private final TradeMessageRepository repository;
 
     public TradeMessageController(TradeMessageRepository tradeMessage)
@@ -38,12 +47,14 @@ public class TradeMessageController
     @GetMapping("")
     public Flux<TradeMessage> all()
     {
+
         return this.repository.findAll();
     }
 
     @PostMapping("")
     public Mono<TradeMessage> create(@RequestBody TradeMessage tradeMessage)
     {
+        this.template.convertAndSend(queue.getName(), tradeMessage.toString());
         return this.repository.save(tradeMessage);
     }
 
@@ -59,7 +70,7 @@ public class TradeMessageController
     public Mono<ResponseEntity<TradeMessage>> update(@PathVariable("id") String id,
             @Valid @RequestBody TradeMessage tradeMessage)
     {
-
+        this.template.convertAndSend(queue.getName(), tradeMessage.toString());
         return repository.findById(id)
                 .flatMap(msg ->
                 {
