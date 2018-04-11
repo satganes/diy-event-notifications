@@ -18,7 +18,7 @@ function connect() {
 		setConnected(true);
 		console.log('Connected: ' + frame);
 		stompClient.subscribe('/topic/messages', function(greeting) {
-			showGreeting(JSON.parse(greeting.body).content);
+			showGreeting(JSON.parse(greeting.body));
 		});
 	});
 }
@@ -38,7 +38,7 @@ function sendName() {
 }
 
 function showGreeting(message) {
-	$("#messages").append("<tr><td>" + message + "</td></tr>");
+	$("#messages").append("<tr><td>" + JSON.stringify(message) + "</td></tr>");
 }
 
 $(function() {
