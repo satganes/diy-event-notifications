@@ -29,6 +29,6 @@ public class TradeMessage
     private Double amountSell;
     private Double amountBuy;
     private Double rate;
-    private LocalDateTime timePlaced;
+    private String timePlaced;
     private String originatingCountry;
 }

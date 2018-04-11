@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -13,22 +15,24 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Receiver
 {
-ObjectMapper mapper = new ObjectMapper();
-TradeMessage msg ;
+    ObjectMapper mapper = new ObjectMapper();
+    @Autowired
+    private SimpMessagingTemplate webSocket;
+
     @RabbitHandler
     public void receive(String input)
     {
+        TradeMessage msg;
         try
         {
             msg = mapper.readValue(input, TradeMessage.class);
-            log.error("Json : " + mapper.writeValueAsString(msg));
+            webSocket.convertAndSend("/topic/greetings", mapper.writeValueAsString(msg.getAmountBuy()));
         }
         catch (IOException e)
         {
             e.printStackTrace();
-        } 
-        log.error("[x] Received '" + input + "'");
-        
-    }
+        }
 
+        log.error("[x] Received '" + input + "'");
+    }
 }

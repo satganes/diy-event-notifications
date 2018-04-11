@@ -47,7 +47,7 @@ public class TradeMessage implements Serializable
     private Double amountBuy;
     @NotNull
     private Double rate;
-    private LocalDateTime timePlaced;
+    private String timePlaced;
     @NotBlank
     private String originatingCountry;
 }

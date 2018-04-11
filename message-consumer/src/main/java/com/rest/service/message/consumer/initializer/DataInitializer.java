@@ -35,7 +35,7 @@ public class DataInitializer implements CommandLineRunner
                                 .amountSell(amt)
                                 .amountBuy(50.00)
                                 .rate(0.74)
-                                .timePlaced(LocalDateTime.now())
+                                .timePlaced(LocalDateTime.now().toString())
                                 .originatingCountry("FR")
                                 .build())))
                 .log()
