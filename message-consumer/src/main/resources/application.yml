@@ -1,6 +1,8 @@
 server:
   port: 8080
 spring:
+  profiles:
+    active: usage_message
   data:
     mongodb:
 #      host: localhost
@@ -10,4 +12,7 @@ spring:
       grid-fs-database: images
 logging:
   level:
-    org.springframework.web: DEBUG
+    org: DEBUG
+tutorial:
+  client:
+    duration: 10000
