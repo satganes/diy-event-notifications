@@ -30,9 +30,9 @@ public class Receiver
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            log.error(e.getMessage());
         }
 
-        log.error("[x] Received '" + input + "'");
+        log.info("[x] Received '" + input + "'");
     }
 }
