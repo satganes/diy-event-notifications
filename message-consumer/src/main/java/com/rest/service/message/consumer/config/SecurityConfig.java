@@ -21,7 +21,7 @@ public class SecurityConfig
                 .disable()
                 .authorizeExchange()
                 .anyExchange()
-                .permitAll()
+                .authenticated()
                 .and()
                 .httpBasic()
                 .and()
