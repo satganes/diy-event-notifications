@@ -1,8 +1,10 @@
-package com.rest.service.message.processor.security;
+package com.rest.service.message.processor.config;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.rest.service.message.processor.handler.RabbitMgEventHandler;
 
 @Configuration
 public class RabbitMqConfig
@@ -14,9 +16,9 @@ public class RabbitMqConfig
     }
 
     @Bean
-    public Receiver receiver()
+    public RabbitMgEventHandler receiver()
     {
-        return new Receiver();
+        return new RabbitMgEventHandler();
     }
 
 }

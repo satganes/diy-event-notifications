@@ -1,4 +1,4 @@
-package com.rest.service.message.processor;
+package com.rest.service.message.processor.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
@@ -8,7 +8,7 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 
 @Configuration
 @EnableWebSocketMessageBroker
-public class WebSocket implements WebSocketMessageBrokerConfigurer
+public class WebSocketConfig implements WebSocketMessageBrokerConfigurer
 {
 
     @Override

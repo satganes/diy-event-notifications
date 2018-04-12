@@ -1,4 +1,4 @@
-package com.rest.service.message.processor.security;
+package com.rest.service.message.processor.handler;
 
 import java.io.IOException;
 
@@ -8,12 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.rest.service.message.processor.model.TradeMessage;
 
 import lombok.extern.slf4j.Slf4j;
 
 @RabbitListener(queues = "tradeMessages")
 @Slf4j
-public class Receiver
+public class RabbitMgEventHandler
 {
     ObjectMapper mapper = new ObjectMapper();
     @Autowired

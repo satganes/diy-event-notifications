@@ -1,4 +1,4 @@
-package com.rest.service.message.processor.security;
+package com.rest.service.message.processor.model;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;

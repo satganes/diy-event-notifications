@@ -1,30 +1,27 @@
 package com.rest.service.message.consumer;
 
-import static org.springframework.web.reactive.function.server.RequestPredicates.DELETE;
-import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
-import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
-import static org.springframework.web.reactive.function.server.RequestPredicates.PUT;
-import static org.springframework.web.reactive.function.server.RouterFunctions.route;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.config.EnableMongoAuditing;
-import org.springframework.web.reactive.function.server.RouterFunction;
-import org.springframework.web.reactive.function.server.ServerResponse;
 
-import com.rest.service.message.consumer.handlers.TradeMessageHandler;
 import com.rest.service.message.consumer.listeners.TradeMessageListener;
 
 @SpringBootApplication
 @EnableMongoAuditing
 public class Application
 {
+    /**
+     * Main method to run the application locally
+     */
     public static void main(String[] args)
     {
         SpringApplication.run(Application.class, args);
     }
 
+    /**
+     * Registering the TradeMessage Listener bean here
+     */
     @Bean
     public TradeMessageListener tradeMessageListener()
     {
