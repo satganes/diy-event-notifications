@@ -1,4 +1,4 @@
-package com.rest.service.message.consumer.security;
+package com.rest.service.message.consumer.config;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;

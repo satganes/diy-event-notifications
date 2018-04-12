@@ -3,6 +3,10 @@ package com.rest.service.message.consumer.exceptions;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+/**
+ * Exception class
+ *
+ */
 @ResponseStatus(code = HttpStatus.NOT_FOUND)
 public class TradeMessageNotFoundException extends RuntimeException
 {

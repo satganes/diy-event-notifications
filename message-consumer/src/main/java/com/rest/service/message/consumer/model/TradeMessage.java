@@ -17,6 +17,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/**
+ * Trade Message POJO class using Lombok
+ *
+ */
 @Document
 @Data
 @ToString

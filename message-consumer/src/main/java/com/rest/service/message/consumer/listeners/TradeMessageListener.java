@@ -14,6 +14,11 @@ import com.rest.service.message.consumer.model.TradeMessage;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Mongo Event listener class which will listen to events from Mongo db (Rest controller writes the
+ * data into mongo) And publish the message to RabbitMQ queue which is configured
+ *
+ */
 @Slf4j
 public class TradeMessageListener extends AbstractMongoEventListener<TradeMessage>
 {

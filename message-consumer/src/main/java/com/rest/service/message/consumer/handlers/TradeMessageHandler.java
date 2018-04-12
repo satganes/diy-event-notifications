@@ -11,6 +11,10 @@ import com.rest.service.message.consumer.repositories.TradeMessageRepository;
 
 import reactor.core.publisher.Mono;
 
+/**
+ * Rest Handler class which can be used for Routers
+ *
+ */
 @Component
 public class TradeMessageHandler
 {

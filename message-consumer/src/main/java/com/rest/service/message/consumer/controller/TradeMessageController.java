@@ -23,6 +23,10 @@ import com.rest.service.message.consumer.repositories.TradeMessageRepository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+/**
+ * Rest Controller class which has the service mapping details
+ *
+ */
 @RestController()
 @RequestMapping(value = "/tradeMessages")
 public class TradeMessageController

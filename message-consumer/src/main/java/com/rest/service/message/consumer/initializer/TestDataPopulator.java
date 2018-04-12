@@ -11,14 +11,18 @@ import com.rest.service.message.consumer.repositories.TradeMessageRepository;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 
+/**
+ * Populate initial test data - sample
+ *
+ */
 @Component
 @Slf4j
-public class DataInitializer implements CommandLineRunner
+public class TestDataPopulator implements CommandLineRunner
 {
 
     private final TradeMessageRepository tradeMessage;
 
-    public DataInitializer(TradeMessageRepository tradeMessage)
+    public TestDataPopulator(TradeMessageRepository tradeMessage)
     {
         this.tradeMessage = tradeMessage;
     }
