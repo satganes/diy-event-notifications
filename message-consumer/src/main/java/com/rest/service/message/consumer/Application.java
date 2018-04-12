@@ -31,12 +31,13 @@ public class Application
         return new TradeMessageListener();
     }
 
-//    @Bean
-//    public RouterFunction<ServerResponse> routes(TradeMessageHandler handler)
-//    {
-//        return route(GET("/tradeMessages"), handler::all).andRoute(POST("/tradeMessages"), handler::create)
-//                .andRoute(GET("/tradeMessages/{id}"), handler::get)
-//                .andRoute(PUT("/tradeMessages/{id}"), handler::update)
-//                .andRoute(DELETE("/tradeMessages/{id}"), handler::delete);
-//    }
+    /*Another way to handle REST calls using Routers*/
+    /*@Bean
+    public RouterFunction<ServerResponse> routes(TradeMessageHandler handler)
+    {
+        return route(GET("/tradeMessages"), handler::all).andRoute(POST("/tradeMessages"), handler::create)
+                .andRoute(GET("/tradeMessages/{id}"), handler::get)
+                .andRoute(PUT("/tradeMessages/{id}"), handler::update)
+                .andRoute(DELETE("/tradeMessages/{id}"), handler::delete);
+    }*/
 }
