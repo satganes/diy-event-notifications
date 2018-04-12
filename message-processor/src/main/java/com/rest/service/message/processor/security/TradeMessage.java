@@ -1,7 +1,5 @@
 package com.rest.service.message.processor.security;
 
-import java.time.LocalDateTime;
-
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -20,8 +18,6 @@ import lombok.ToString;
 @JsonDeserialize
 public class TradeMessage
 {
-    // Using lombok
-//    private LocalDateTime createdDate;
 
     private String userId;
     private String currencyFrom;

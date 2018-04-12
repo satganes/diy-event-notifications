@@ -12,7 +12,7 @@ spring:
       grid-fs-database: images
 logging:
   level:
-    org: DEBUG
+    org: ERROR
 tutorial:
   client:
     duration: 10000

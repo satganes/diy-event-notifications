@@ -26,6 +26,8 @@ public class Receiver
         try
         {
             msg = mapper.readValue(input, TradeMessage.class);
+            // Process and aggregate the message attributes here inorder to populate a pictorial representation
+            // of some metrics in the UI
             webSocket.convertAndSend("/topic/messages", msg);
         }
         catch (IOException e)
