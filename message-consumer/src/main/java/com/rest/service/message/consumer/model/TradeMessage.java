@@ -1,12 +1,10 @@
 package com.rest.service.message.consumer.model;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -30,10 +28,6 @@ import lombok.ToString;
 public class TradeMessage implements Serializable
 {
     private static final long serialVersionUID = 1L;
-
-    // Using lombok
-//    @CreatedDate
-//    private LocalDateTime createdDate;
 
     @Id
     private String userId;
