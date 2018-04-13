@@ -156,3 +156,11 @@ We can deploy this application (with some modifications) into the cloud based so
 *Google Dataflow, Amazon datapipeline, etc* - We can pull/aggregate the information from the pubsub above and process it. And a sequence of activities can be performed to make it UI friendly.
 
 *Websockets, sockets.io* - And establish a socket from the last action of the dataflow to pop up in the UI.
+
+### Things Todo (or) Work in progress, when time permits ;)
+
+1. Micro cloud - deploy, manage and see how it works.
+2. Dockerization of the microservices
+3. Full fledged front end using Reactjs or Angular (should start exploring angular 5)
+4. What is rethinkdb? (https://geowarin.github.io/a-simple-chat-with-spring-boot-and-rethinkdb/)
+5. Read about cloud foundry and explore stuff.
