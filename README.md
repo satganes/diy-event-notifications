@@ -130,3 +130,29 @@ And the response should look like
 }
 ```
 And you must see the json sent to the UI using websocket.
+
+### Performance & Scalability
+
+Spring web flux ensures the scalability aspect vertically. (Within the JVM)
+With respect to the _horizontal_ scaling of the application (clustering), we can deploy multiple nodes of this application with the load balancer on top of it to ensure high number of concurrent payloads can be processed.
+
+### Containerization
+
+We can dockerize the services as containers and deploy.
+
+### Security
+
+Simple basic authentication is used in the RESTful web services.
+We can extend the functionality to OAuth.
+As well as the deployment can be made HTTP(S) with valid signed certificates.
+
+### Cloud Deployment
+
+We can deploy this application (with some modifications) into the cloud based solution where,
+*Amazon Lambda, Google Cloud Functions, etc.* - Can be configured for auto-scaling and performance and the RESTful web services can be deployed to handle huge incoming requests
+
+*Amazon SQS, Google Pub Sub* - The lambda function can dump the requests into this component which will be like a msgbroker/pubsub.
+
+*Google Dataflow, Amazon datapipeline, etc* - We can pull/aggregate the information from the pubsub above and process it. And a sequence of activities can be performed to make it UI friendly.
+
+*Websockets, sockets.io* - And establish a socket from the last action of the dataflow to pop up in the UI.
