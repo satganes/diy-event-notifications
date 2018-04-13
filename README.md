@@ -49,6 +49,7 @@ http://localhost:8081/
 Click on Connect to open the WebSocket
 ```
 Basic Authentication username/password = rob/rob, admin/admin
+
 For GET REST request
 
 ```sh
@@ -163,4 +164,4 @@ We can deploy this application (with some modifications) into the cloud based so
 2. Dockerization of the microservices
 3. Full fledged front end using Reactjs or Angular (should start exploring angular 5)
 4. What is rethinkdb? (https://geowarin.github.io/a-simple-chat-with-spring-boot-and-rethinkdb/)
-5. Read about cloud foundry and explore stuff.
+5. Read about cloud foundry and explore.
